@@ -4,7 +4,7 @@
 
   vars:
     repo_url: "git@github.com:Neleoko/TP-React-Ansible.git"
-    app_dir: "/home/user/app"
+    app_dir: "/home/user/projet_ansible"
 
   tasks:
     - name: Clone Project
@@ -13,6 +13,7 @@
         dest: "{{ app_dir }}"
         version: main
         update: yes
+        force: no
 
     - name: Update repository
       git:
