@@ -3,7 +3,7 @@
   become: yes
 
   vars:
-    repo_url: "git@github.com:Neleoko/TP-React-Ansible.git"
+    repo_url: "https://github.com/Neleoko/TP-React-Ansible.git"
     app_dir: "/home/admin/projet_ansible"
 
   tasks:
