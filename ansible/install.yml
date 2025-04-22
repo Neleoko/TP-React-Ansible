@@ -11,7 +11,7 @@
       git:
         repo: "{{ repo_url }}"
         dest: "{{ app_dir }}"
-        branch: main
+        version: main
         update: yes
 
     - name: Update repository
