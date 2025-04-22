@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    repo_url: "git@github.com:Neleoko/TP-React-Ansible.git"
+    app_dir: "/home/user/app"
+
+  tasks:
+    - name: Clone Project
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        branch: main
+        update: yes
+
+    - name: Update repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        version: main
+        update: yes
+        accept_hostkey: yes
+
+    - name: Lancer Docker
+      shell: docker-compose up -d
+      args:
+          chdir: "{{ app_dir }}"
