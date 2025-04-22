@@ -22,6 +22,7 @@ jobs:
 
       - name: Replace SERVER_IP in Ansible inventory
         run: |
+          cat ${{ secrets.SSH_HOST }}
           sed -i "s|{{ SERVER_IP }}|${{ secrets.SSH_HOST }}|g" ./ansible/inventory
 
       - name: Launch playbook
